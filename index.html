@@ -90,7 +90,8 @@
   .exp-bullets li::before{content:'›';position:absolute;left:0;color:var(--accent)}
 
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
-  .project-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:all .2s;position:relative;overflow:hidden}
+  .project-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;transition:all .2s;position:relative;overflow:hidden;text-decoration:none;color:var(--text);display:block;cursor:pointer;outline:none}
+  .project-card:focus{outline:none}
   .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .2s}
   .project-card:hover{border-color:rgba(0,229,255,0.3);transform:translateY(-2px)}
   .project-card:hover::before{opacity:1}
@@ -99,6 +100,8 @@
   .project-desc{font-size:13px;color:#7890a8;line-height:1.6;margin-bottom:1rem}
   .project-stack{display:flex;flex-wrap:wrap;gap:5px}
   .stack-tag{font-size:10px;padding:2px 7px;border-radius:3px;font-family:var(--mono);background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.15);color:var(--accent)}
+  .gh-link-hint{position:absolute;top:1rem;right:1rem;opacity:0;transition:opacity .2s}
+  .project-card:hover .gh-link-hint{opacity:1}
 
   .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
   .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color .2s}
@@ -381,7 +384,8 @@
   <h2 class="section-title">Projects</h2>
   <div class="section-line"></div>
   <div class="projects-grid">
-    <div class="project-card">
+    <a class="project-card" href="https://github.com/Bhadri1202nar/Auto-GRC" target="_blank" rel="noopener">
+      <div class="gh-link-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00e5ff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
       <div class="project-type">BLUE TEAM · GRC</div>
       <div class="project-name">AUTO GRC</div>
       <div class="project-desc">Automated GRC management tool built using MCP that leverages the Sigma framework to analyse event logs and generate comprehensive compliance reports.</div>
@@ -391,8 +395,7 @@
         <span class="stack-tag">Python</span>
         <span class="stack-tag">Event Logs</span>
       </div>
-      <a href="https://github.com/Bhadri1202nar/Auto-GRC" target="_blank" rel="noopener" class="gh-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> view on github</a>
-    </div>
+    </a>
     <div class="project-card">
       <div class="project-type">MALWARE ANALYSIS</div>
       <div class="project-name">Zeus Trojan Analysis</div>
@@ -404,7 +407,8 @@
         <span class="stack-tag">Procmon</span>
       </div>
     </div>
-    <div class="project-card">
+    <a class="project-card" href="https://github.com/Bhadri1202nar/recon_automation" target="_blank" rel="noopener">
+      <div class="gh-link-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00e5ff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
       <div class="project-type">RECON · AUTOMATION</div>
       <div class="project-name">Recon Automation</div>
       <div class="project-desc">Bash-based automation tool for security reconnaissance — performs subdomain enumeration and port scanning, designed for repeatable cron-scheduled security assessments.</div>
@@ -414,9 +418,9 @@
         <span class="stack-tag">Subdomain Enum</span>
         <span class="stack-tag">Port Scanning</span>
       </div>
-      <a href="https://github.com/Bhadri1202nar/recon_automation" target="_blank" rel="noopener" class="gh-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> view on github</a>
-    </div>
-    <div class="project-card">
+    </a>
+    <a class="project-card" href="https://github.com/Bhadri1202nar/pdf-rag" target="_blank" rel="noopener">
+      <div class="gh-link-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00e5ff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
       <div class="project-type">GEN AI · RAG</div>
       <div class="project-name">PDF RAG System</div>
       <div class="project-desc">LangChain-powered RAG application for intelligent PDF interaction and summarisation using Gemini API and FAISS vector database for semantic retrieval.</div>
@@ -426,8 +430,7 @@
         <span class="stack-tag">FAISS</span>
         <span class="stack-tag">Python</span>
       </div>
-      <a href="https://github.com/Bhadri1202nar/pdf-rag" target="_blank" rel="noopener" class="gh-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg> view on github</a>
-    </div>
+    </a>
     <div class="project-card">
       <div class="project-type">WEB3 · AUTH</div>
       <div class="project-name">MetaMask Authentication</div>
@@ -439,7 +442,8 @@
         <span class="stack-tag">Flask</span>
       </div>
     </div>
-    <div class="project-card">
+    <a class="project-card" href="https://github.com/Bhadri1202nar/Nexus" target="_blank" rel="noopener">
+      <div class="gh-link-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00e5ff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
       <div class="project-type">GEN AI · TOOLING</div>
       <div class="project-name">NEXUS — LLM Hub</div>
       <div class="project-desc">Streamlit-powered UI to switch between top LLMs, enabling PDF uploads, voice input via Whisper API, and research paper querying from arXiv.</div>
@@ -449,7 +453,7 @@
         <span class="stack-tag">arXiv API</span>
         <span class="stack-tag">Multi-LLM</span>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
